@@ -121,6 +121,7 @@ header{
     box-sizing: border-box;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    text-shadow: 20px 5px 3px rgb(227, 227, 227);
 
     .img__Art {
         transition: all 0.25s ease;
@@ -259,6 +260,8 @@ header{
             background-color: cadetblue;
         }
     }
+
+    
 }
 
 .main__menu {

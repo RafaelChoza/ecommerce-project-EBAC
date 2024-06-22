@@ -121,6 +121,9 @@ const counterProducts = document.querySelector(".counter");
 
 let allProducts = [];
 
+let totalPagar = document.querySelector(".total__pagar");
+
+
 productList.addEventListener('click', e => {
     if (e.target.classList.contains("add__Cart")) {
         const product = e.target.parentElement;
@@ -130,7 +133,7 @@ productList.addEventListener('click', e => {
             quantity: 1,
             img: product.querySelector("img").src,
             title: product.querySelector("h3").textContent,
-            price: product.querySelector("p").textContent
+            price: parseFloat(product.querySelector("p").textContent.replace(/[$,]/g, ''))
         };
 
         allProducts = [...allProducts, infoProduct];
@@ -142,12 +145,15 @@ productList.addEventListener('click', e => {
 const showHTML = () => {
     rowProducts.innerHTML = "";
 
+    let total = 0;
+
     allProducts.forEach(product => {
         const containerProduct = document.createElement("div");
         containerProduct.classList.add("product__Cart");
 
         containerProduct.innerHTML = `
             <div class="product__Cart" data-id="${product.id}">
+                <p>${product.quantity}</p>
                 <img class="img__Cart" src="${product.img}" alt="${product.title}">
                 <p>${product.title}</p>
                 <p>$${product.price}</p>
@@ -156,6 +162,8 @@ const showHTML = () => {
         `;
 
         rowProducts.append(containerProduct);
+
+        total = total + product.price;
 
         const removeIcon = containerProduct.querySelector(".remove");
 
@@ -168,10 +176,12 @@ const showHTML = () => {
           
     });
 
-    counterProducts.textContent = allProducts.length;
-     
     
 
+    counterProducts.textContent = allProducts.length;
+
+   
+    totalPagar.textContent = total.toFixed(2);
 };
 
 
@@ -187,6 +197,7 @@ onImage.forEach(element => {
     element.addEventListener("mouseenter", () => {
         element.style.scale = 1.05;
         element.style.boxShadow = "5px 10px 10px 5px #000000"
+        element.style.overflow = "hidden"
     });
     element.addEventListener("mouseleave", () => {
         element.style.scale = 1;
@@ -205,6 +216,7 @@ buttonSize.forEach(element => {
     element.addEventListener("mouseleave", () => {
         element.style.borderRadius = "0px";
         element.style.scale = 1;
+        element.style.boxShadow = "0px 0px 0px #000000"
     });
 });
 
@@ -251,4 +263,3 @@ buttonClose2.forEach(element => {
         element.style.scale = 1;
     });
 });
-
