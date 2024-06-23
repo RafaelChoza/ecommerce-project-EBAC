@@ -263,3 +263,25 @@ buttonClose2.forEach(element => {
         element.style.scale = 1;
     });
 });
+
+const showModal = document.querySelectorAll(".img__Art");
+const hideModal = document.querySelector(".modal i")
+
+
+showModal.forEach(picProduct => {
+    picProduct.addEventListener("click", () => {
+        const modalHi = document.querySelector(".modal")
+        if(modalHi.classList.contains("hide")) {
+            modalHi.classList.remove("hide");
+        };
+        modalHi.classList.add("show"); 
+    });
+});
+
+hideModal.addEventListener("click", () => {
+    document.querySelector(".modal").classList.add("hide");
+});
+
+
+
+
