@@ -252,3 +252,26 @@ buttonClose2.forEach(element => {
     });
 });
 
+const btnShowForm = document.querySelector(".btn__openForm");
+const form = document.querySelector(".form");
+const btnSend = document.querySelector(".btn__send");
+
+btnShowForm.addEventListener("click", () => {
+    form.classList.add("show");
+});
+
+btnSend.addEventListener("click", () => {
+    form.classList.remove("show");
+});
+
+btnSend.addEventListener("mouseenter", () => {
+    btnSend.style.scale = 1.2;
+    btnSend.style.color = "#D5DBDB";
+    btnSend.style.backgroundColor = "#17202A";
+});
+
+btnSend.addEventListener("mouseleave", () => {
+    btnSend.style.scale = 1;
+    btnSend.style.color = "#17202A";
+    btnSend.style.backgroundColor = "#D5DBDB";
+});
