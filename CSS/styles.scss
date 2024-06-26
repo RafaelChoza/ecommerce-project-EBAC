@@ -417,6 +417,13 @@ header{
             right:11px;
         }
     }
+
+    .contact {
+
+        .btn__openForm {
+            width: 30%;
+        }
+    }
 }
 
 @media (max-width: 480px) {
@@ -520,22 +527,40 @@ header{
             left: -400%;
         }
     }
+
+    .contact {
+
+        .btn__openForm {
+            width: 30%;
+            font-size: 10px;
+        }
+
+        .form {
+            width: 50%;
+        }
+
+        .btn__send {
+            width: 50%;
+        }
+    }
 }
 
 @media (max-width: 380px) {
     body {
-        width: 80%;
+        width: 375px;
     }
 
     header {
+        width: 100%;
         display: flex;
         flex-direction: row;
-        padding: 11px;
+        padding: 0px;
+        justify-content:space-around;
     }
 
     body {
         .counter {
-            right:11px;
+            right:91px;
             top: 8px;
             font-size: 18px;
             width: 4%;
@@ -628,6 +653,22 @@ header{
 
         &.hide {
             left: -400%;
+        }
+    }
+
+    .contact {
+
+        .btn__openForm {
+            width: 30%;
+            font-size: 10px;
+        }
+
+        .form {
+            width: 50%;
+        }
+
+        .btn__send {
+            width: 50%;
         }
     }
 }
