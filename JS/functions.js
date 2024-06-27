@@ -252,6 +252,7 @@ buttonClose2.forEach(element => {
     });
 });
 
+
 const btnShowForm = document.querySelector(".btn__openForm");
 const form = document.querySelector(".form");
 const btnSend = document.querySelector(".btn__send");
@@ -270,7 +271,7 @@ btnSend.addEventListener("click", () => {
 });
 
 btnSend.addEventListener("mouseenter", () => {
-    btnSend.style.scale = 1.2;
+    btnSend.style.scale = 1.1;
     btnSend.style.color = "#D5DBDB";
     btnSend.style.backgroundColor = "#17202A";
 });
