@@ -371,6 +371,25 @@ header{
     }
 }
 
+.msg__sent {
+    width: 100%;
+    background-color: #353535;
+    color: #ffffff;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: fixed;
+    bottom: -70%;
+    transition: all 1s ease;
+    opacity: 70%;
+    height: 200px;
+    font-size: 40px;
+
+    &.show {
+        bottom: 0%;
+    }
+}
+
 @media (max-width: 1200px){
     .product__Cart{
         font-size: 8px;

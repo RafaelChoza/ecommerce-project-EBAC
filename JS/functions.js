@@ -255,6 +255,7 @@ buttonClose2.forEach(element => {
 const btnShowForm = document.querySelector(".btn__openForm");
 const form = document.querySelector(".form");
 const btnSend = document.querySelector(".btn__send");
+const msgSent = document.querySelector(".msg__sent");
 
 btnShowForm.addEventListener("click", () => {
     form.classList.add("show");
@@ -262,6 +263,10 @@ btnShowForm.addEventListener("click", () => {
 
 btnSend.addEventListener("click", () => {
     form.classList.remove("show");
+    msgSent.classList.add("show");
+    setTimeout(() => {
+        msgSent.classList.remove("show");
+    }, 1500);
 });
 
 btnSend.addEventListener("mouseenter", () => {
