@@ -562,6 +562,10 @@ header{
             width: 50%;
         }
     }
+
+    .msg__sent {
+        font-size: 20px;
+    }
 }
 
 @media (max-width: 380px) {
@@ -689,5 +693,9 @@ header{
         .btn__send {
             width: 50%;
         }
+    }
+
+    .msg__sent {
+        font-size: 20px;
     }
 }

@@ -443,6 +443,9 @@ button.toggle {
   .contact .btn__send {
     width: 50%;
   }
+  .msg__sent {
+    font-size: 20px;
+  }
 }
 @media (max-width: 380px) {
   body {
@@ -539,5 +542,8 @@ button.toggle {
   }
   .contact .btn__send {
     width: 50%;
+  }
+  .msg__sent {
+    font-size: 20px;
   }
 }/*# sourceMappingURL=styles.css.map */
