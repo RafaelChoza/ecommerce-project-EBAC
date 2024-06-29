@@ -405,9 +405,120 @@ header{
     }
 }
 
+.what__icon {
+    width: 4%;
+    position: fixed;
+    right: 3%;
+    bottom: 5%;
+    cursor: pointer;
+}
+
+.what__icon:hover {
+    transform: scale(1.2);
+    transition: all .25s ease;
+    background-color: #128c7e;
+}
+
 @media (max-width: 1200px){
     .product__Cart{
         font-size: 8px;
+    }
+}
+
+@media (max-width: 1185px) {
+    .contact {
+       
+        .form {
+            width: 25%;
+        }
+    }
+}
+
+@media (max-width: 1030px) {
+    .contact {
+       
+        .form {
+            width: 25%;
+        }
+    }
+}
+
+@media (max-width: 940px) {
+    .contact {
+        width: 100%;
+
+        h3 {
+            margin: 0px;
+        }
+    
+        .btn__openForm{
+            margin: 0px;
+            width: 30%;
+        }
+       
+        .form {
+            width: 20%;
+            left: 0%;
+            bottom: -145%;
+            
+            &.show {
+                left: 40%;
+                bottom: 0%;
+            }
+    
+            .btn__send{
+                font-size: 12px;
+            }
+        }
+    }
+
+    .msg__sent {
+        height: 90px;
+    }
+}
+
+@media (max-width: 915px) {
+    .contact {
+       
+        .form {
+            width: 30%;
+
+            &.show {
+                left: 30%;
+                bottom: 30%;
+            }
+        }
+    }
+}
+
+@media (max-width: 890px) {
+
+    .contact {
+       
+        .form {
+            width: 30%;
+            font-size: 12px;
+            padding: 0px;
+
+            &.show {
+                left: 40%;
+                bottom: 0%;
+            }
+        }
+    }
+}
+
+@media (max-width: 860px) {
+    .contact {
+       
+        .form {
+            width: 30%;
+
+            &.show {
+                left: 30%;
+                bottom: 30%;
+            }
+        }
     }
 }
 
@@ -427,7 +538,6 @@ header{
     }
 
     .main__products {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         
         img{
             width: 150px;
@@ -457,6 +567,78 @@ header{
         .btn__openForm {
             width: 30%;
         }
+    }
+}
+
+@media (max-width: 770px) {
+    .contact {
+       
+        .form {
+            width: 30%;
+
+            &.show {
+                left: 30%;
+                bottom: 30%;
+            }
+        }
+    }
+}
+
+@media (max-width: 751px) {
+    .contact {
+       
+        .form {
+            width: 30%;
+
+            &.show {
+                left: 30%;
+                bottom: 0%;
+            }
+        }
+    }
+}
+
+@media (max-width: 750px) {
+    .contact {
+       
+        .form {
+            width: 30%;
+        }
+    }
+}
+
+@media (max-width: 680px) {
+    .contact {
+        width: 100%;
+        font-size: 20px;
+
+        h3 {
+            margin: 0px;
+        }
+    
+        .btn__openForm{
+            margin: 0px;
+            width: 40%;
+        }
+       
+        .form {
+            width: 40%;
+            left: 0%;
+            bottom: -145%;
+            
+            &.show {
+                left: 30%;
+                bottom: 0%;
+            }
+    
+            .btn__send{
+                font-size: 12px;
+            }
+        }
+    }
+
+    .msg__sent {
+        height: 90px;
     }
 }
 
@@ -731,6 +913,10 @@ header{
     .contact {
         width: 100%;
         font-size: 30px;
+
+        h3 {
+            margin: 20px;
+        }
     
         .btn__openForm{
             width: 40%;
@@ -738,7 +924,8 @@ header{
         }
        
         .form {
-            width: 40%;
+            padding: 10px;
+            width: 50%;
             left: 0%;
             bottom: -105%;
             font-size: 12px;
@@ -756,5 +943,17 @@ header{
                 font-size: 16px;
             }
         }
+    }
+
+    .msg__sent {
+        height: 150px;
+    }
+
+    .what__icon {
+        width: 10%;
+        position: fixed;
+        right: 15%;
+        bottom: 5%;
+        cursor: pointer;
     }
 }
