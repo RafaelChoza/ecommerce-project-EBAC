@@ -33,6 +33,7 @@ img {
 
 header {
   position: fixed;
+  top: 0%;
   z-index: 1000;
   background-color: rgb(255, 255, 255);
   width: 100%;
@@ -56,15 +57,14 @@ header i img {
 
 .main__banner {
   width: 100%;
-  top: 60px;
-  height: auto;
+  position: relative;
+  top: 30px;
 }
 .main__banner .banner__content {
-  position: relative;
   text-align: center;
 }
 .main__banner h2, .main__banner p {
-  position: absolute;
+  position: fixeds;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
@@ -361,6 +361,11 @@ button.toggle {
   .contact .form {
     width: 25%;
   }
+  .what__icon {
+    width: 8%;
+    right: 2%;
+    bottom: 5%;
+  }
 }
 @media (max-width: 940px) {
   .contact {
@@ -454,6 +459,11 @@ button.toggle {
     left: 30%;
     bottom: 30%;
   }
+  .what__icon {
+    width: 8%;
+    right: 5%;
+    bottom: 2%;
+  }
 }
 @media (max-width: 751px) {
   .contact .form {
@@ -467,6 +477,11 @@ button.toggle {
 @media (max-width: 750px) {
   .contact .form {
     width: 30%;
+  }
+  .what__icon {
+    width: 8%;
+    right: 2%;
+    bottom: 5%;
   }
 }
 @media (max-width: 680px) {
@@ -613,6 +628,11 @@ button.toggle {
   .contact .form .btn__send {
     font-size: 16px;
   }
+  .what__icon {
+    width: 15%;
+    right: 5%;
+    bottom: 3%;
+  }
 }
 @media (max-width: 380px) {
   body {
@@ -626,13 +646,14 @@ button.toggle {
     justify-content: space-around;
   }
   body .counter {
-    right: 50px;
-    top: 2px;
+    right: 40px;
+    top: 1px;
     font-size: 18px;
     width: 4%;
   }
   .main__banner {
     width: 100%;
+    top: 20%;
     padding: 30px 0;
   }
   .main__banner h2 {
@@ -736,9 +757,7 @@ button.toggle {
   }
   .what__icon {
     width: 10%;
-    position: fixed;
-    right: 15%;
+    right: 8%;
     bottom: 5%;
-    cursor: pointer;
   }
 }/*# sourceMappingURL=styles.css.map */
