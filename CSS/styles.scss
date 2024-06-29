@@ -353,17 +353,32 @@ header{
     }
    
     .form {
-        width: 20%;
+        width: 14%;
         margin: 5px;
-        display: none;
-        
+        left: 0%;
+        bottom: -75%;
+        position: fixed;
+        background-color: #353535;
+        color: #ffffff;
+        padding: 10px;
+        opacity: 95%;
+        font-size: 12px;
+        transition: all .5s ease;
+        box-shadow: 10px 10px 400px 10px rgb(0, 0, 0);
         
         &.show {
-            display: block;
+            left: 40%;
+            bottom: 25%;
+        }
+
+        p, input, textarea {
+            justify-items: center;
         }
 
         .btn__send{
-            width: 70%;
+            width: 100%;
+            margin: 10px 0px 10px 0px;
+            padding: 5px;
             margin-bottom: 10px;
             cursor: pointer;
             transition: all 0.25s ease;
@@ -371,9 +386,139 @@ header{
     }
 }
 
+.msg__sent {
+    width: 100%;
+    background-color: #353535;
+    color: #ffffff;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: fixed;
+    bottom: -70%;
+    transition: all 1s ease;
+    opacity: 70%;
+    height: 200px;
+    font-size: 40px;
+
+    &.show {
+        bottom: 0%;
+    }
+}
+
+.what__icon {
+    width: 4%;
+    position: fixed;
+    right: 3%;
+    bottom: 5%;
+    cursor: pointer;
+}
+
+.what__icon:hover {
+    transform: scale(1.2);
+    transition: all .25s ease;
+    background-color: #128c7e;
+}
+
 @media (max-width: 1200px){
     .product__Cart{
         font-size: 8px;
+    }
+}
+
+@media (max-width: 1185px) {
+    .contact {
+       
+        .form {
+            width: 25%;
+        }
+    }
+}
+
+@media (max-width: 1030px) {
+    .contact {
+       
+        .form {
+            width: 25%;
+        }
+    }
+}
+
+@media (max-width: 940px) {
+    .contact {
+        width: 100%;
+
+        h3 {
+            margin: 0px;
+        }
+    
+        .btn__openForm{
+            margin: 0px;
+            width: 30%;
+        }
+       
+        .form {
+            width: 20%;
+            left: 0%;
+            bottom: -145%;
+            
+            &.show {
+                left: 40%;
+                bottom: 0%;
+            }
+    
+            .btn__send{
+                font-size: 12px;
+            }
+        }
+    }
+
+    .msg__sent {
+        height: 90px;
+    }
+}
+
+@media (max-width: 915px) {
+    .contact {
+       
+        .form {
+            width: 30%;
+
+            &.show {
+                left: 30%;
+                bottom: 30%;
+            }
+        }
+    }
+}
+
+@media (max-width: 890px) {
+
+    .contact {
+       
+        .form {
+            width: 30%;
+            font-size: 12px;
+            padding: 0px;
+
+            &.show {
+                left: 40%;
+                bottom: 0%;
+            }
+        }
+    }
+}
+
+@media (max-width: 860px) {
+    .contact {
+       
+        .form {
+            width: 30%;
+
+            &.show {
+                left: 30%;
+                bottom: 30%;
+            }
+        }
     }
 }
 
@@ -393,7 +538,6 @@ header{
     }
 
     .main__products {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         
         img{
             width: 150px;
@@ -423,6 +567,78 @@ header{
         .btn__openForm {
             width: 30%;
         }
+    }
+}
+
+@media (max-width: 770px) {
+    .contact {
+       
+        .form {
+            width: 30%;
+
+            &.show {
+                left: 30%;
+                bottom: 30%;
+            }
+        }
+    }
+}
+
+@media (max-width: 751px) {
+    .contact {
+       
+        .form {
+            width: 30%;
+
+            &.show {
+                left: 30%;
+                bottom: 0%;
+            }
+        }
+    }
+}
+
+@media (max-width: 750px) {
+    .contact {
+       
+        .form {
+            width: 30%;
+        }
+    }
+}
+
+@media (max-width: 680px) {
+    .contact {
+        width: 100%;
+        font-size: 20px;
+
+        h3 {
+            margin: 0px;
+        }
+    
+        .btn__openForm{
+            margin: 0px;
+            width: 40%;
+        }
+       
+        .form {
+            width: 40%;
+            left: 0%;
+            bottom: -145%;
+            
+            &.show {
+                left: 30%;
+                bottom: 0%;
+            }
+    
+            .btn__send{
+                font-size: 12px;
+            }
+        }
+    }
+
+    .msg__sent {
+        height: 90px;
     }
 }
 
@@ -543,6 +759,40 @@ header{
             width: 50%;
         }
     }
+
+    .msg__sent {
+        font-size: 20px;
+    }
+
+    .contact {
+        width: 100%;
+        font-size: 30px;
+    
+        .btn__openForm{
+            width: 40%;
+            margin-bottom: 15px;
+        }
+       
+        .form {
+            width: 40%;
+            left: 0%;
+            bottom: -105%;
+            font-size: 12px;
+            
+            &.show {
+                left: 20%;
+                bottom: 35%;
+            }
+    
+            p, input, textarea {
+                justify-items: center;
+            }
+    
+            .btn__send{
+                font-size: 16px;
+            }
+        }
+    }
 }
 
 @media (max-width: 380px) {
@@ -560,8 +810,8 @@ header{
 
     body {
         .counter {
-            right:91px;
-            top: 8px;
+            right:50px;
+            top: 2px;
             font-size: 18px;
             width: 4%;
         }
@@ -656,19 +906,54 @@ header{
         }
     }
 
+    .msg__sent {
+        font-size: 20px;
+    }
+
     .contact {
+        width: 100%;
+        font-size: 30px;
 
-        .btn__openForm {
-            width: 30%;
-            font-size: 10px;
+        h3 {
+            margin: 20px;
         }
-
+    
+        .btn__openForm{
+            width: 40%;
+            margin-bottom: 15px;
+        }
+       
         .form {
+            padding: 10px;
             width: 50%;
+            left: 0%;
+            bottom: -105%;
+            font-size: 12px;
+            
+            &.show {
+                left: 20%;
+                bottom: 15%;
+            }
+    
+            p, input, textarea {
+                justify-items: center;
+            }
+    
+            .btn__send{
+                font-size: 16px;
+            }
         }
+    }
 
-        .btn__send {
-            width: 50%;
-        }
+    .msg__sent {
+        height: 150px;
+    }
+
+    .what__icon {
+        width: 10%;
+        position: fixed;
+        right: 15%;
+        bottom: 5%;
+        cursor: pointer;
     }
 }
