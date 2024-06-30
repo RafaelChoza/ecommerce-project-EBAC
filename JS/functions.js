@@ -71,7 +71,7 @@ button[0].addEventListener('click', () => {
 
 
 const header = document.querySelector("header");
-const carIcon = header.lastElementChild;
+const carIcon = document.querySelector(".cart__button");
 const cart = document.querySelector(".main__cart")
 
 carIcon.addEventListener('click', () => { 
