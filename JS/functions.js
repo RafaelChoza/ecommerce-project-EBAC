@@ -281,3 +281,21 @@ btnSend.addEventListener("mouseleave", () => {
     btnSend.style.color = "#17202A";
     btnSend.style.backgroundColor = "#D5DBDB";
 });
+
+let lastScrollTop = 0;
+const headerMove = document.querySelector("header")
+window.addEventListener('scroll', function() {
+    let currentScrollTop = window.scrollY || document.documentElement.scrollTop;
+    console.log("curret" + currentScrollTop)
+    console.log("last" + lastScrollTop)
+    console.log(menu);
+    if (currentScrollTop < lastScrollTop) {
+        // Desplazando hacia arriba
+        headerMove.classList.add('hidden');
+    } else {
+        // Desplazando hacia arriba
+        headerMove.classList.remove('hidden');
+    }
+
+    lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop; // Para evitar valores negativos
+});
