@@ -12,14 +12,19 @@
 </head>
 <body>
     <header>
-        <i><img class="button__header" src="img/menu.svg" alt="Icono Menu"></i>
+        <section class="modal__logo">
+            <p>Logo ADIDAS</p>
+        </section>
+        <i><img class="button__header" id="menu__icon" src="img/menu.svg" alt="Icono Menu"></i>
         <i><img src="img/logoAdidasblanco.jpg" alt="Logo Adidas" class="logo"></i>
-        <i><img class="button__header" src="img/shopping-cart.svg" alt="Icono carrito"></i>
+        <i><img class="button__header" id="cart__icon" src="img/shopping-cart.svg" alt="Icono carrito"></i>
         
     </header>
     <p class="counter">0</p>
 
     <main>
+        
+
         <section class="main__banner">
             <div class="banner__content">
                 <b></b><h2>Productos Nuevos</h2>
@@ -32,21 +37,24 @@
         <section class="main__products">
             
             <article class="info__Product">
-                <img class="img__Art" src="img/jersey.png" alt="Jersey">
+                <p class="modal__jersey" >Jersey de la Selección Mexicana. Hecho en nuestra fabrica en México ubicada en Torreón</p>
+                <img class="img__Art" id="jersey" src="img/jersey.png" alt="Jersey">
                 <h3 id="txt">Jersey Mexico 2023</h3>
                 <p class="price">$1,000.00</p>
                 <button class="add__Cart">Agregar a Carrito</button>
             </article>
 
             <article class="info__Product">
-                <img class="img__Art" src="img/chamarra.png" alt="Chamarra">
+                <p class="modal__chamarra">Chamarra Adidas color azul clásica. Hecha en nuestra fabrica en México ubicada en Torreón</p>
+                <img class="img__Art" id="chamarra" src="img/chamarra.png" alt="Chamarra">
                 <h3>Chamarra Adidas</h3>
                 <p class="price">$2,000.00</p>
                 <button class="add__Cart">Agregar a Carrito</button>
             </article>
 
             <article class="info__Product">
-                <img class="img__Art" src="img/tenis.png" alt="Tennis">
+                <p class="modal__tenis">Tenis Adidas color negro clásicos. Hechos en nuestra fabrica en México ubicada en Torreón</p>
+                <img class="img__Art" id="tenis" src="img/tenis.png" alt="Tennis">
                 <h3>Adidas LG2</h3>
                 <p class="price">$2,300.00</p>
                 <button class="add__Cart">Agregar a Carrito</button>
@@ -161,22 +169,22 @@
         <section class="main__cart">
             <div>
                 <h2 >CARRITO</h2>
-                <i><img class="close" src="img/cerrar.png" alt="carrito"></i>
+                <span class="close">Cerrar</span>
             </div>
             <div class="row__Product">
                
             </div>    
             <button>COMPRAR</button>
             <div>
-                <p class="total">Total a pagar $</p>
-                <span class="total__pagar">0</span>
+                <p class="total">Total a pagar</p>
+                <span class="total__pay">0.00</span>
             </div>
         </section>
 
         <section class="main__menu">
             <div class="menu__header">
                 <h3>Menú</h3>
-                <i><img class="close2" src="img/cerrar.png" alt="menu"></i>
+                <span class="close2">Cerrar</span>
             </div>
             <i><p class="size">Moda Hombres</p></i>
             <i><p class="size">Moda Mujeres</p></i>
@@ -188,6 +196,8 @@
             <h3>Soy un Modal</h3>
             <p>Hola</p>
         </section>
-       
+
+      
+    </main>
 </body>
 </html>

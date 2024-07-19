@@ -1,287 +1,126 @@
-//Select elements
+const menuIcon = document.getElementById("menu__icon");
+const cartIcon = document.getElementById("cart__icon");
+const menuContent = document.querySelector(".main__menu");
+const cartContent = document.querySelector(".main__cart");
+const menuCLoseIcon = document.querySelector(".close2");
+const cartCloseIcon = document.querySelector(".close");
 
-//console.log("Hello World!");
+menuIcon.addEventListener(`click`, () => {
+    menuContent.classList.add("show");
+});
 
-const title = document.getElementById("txt");
-//console.log(title);
+menuCLoseIcon.addEventListener(`click`, () =>{
+    menuContent.classList.remove("show");
+});
 
-const image = document.getElementsByClassName("logo");
-//console.log(image[1]);
+cartIcon.addEventListener(`click`, () => {
+    cartContent.classList.add("show");
+});
 
-const tags = document.getElementsByTagName("section");
-//console.log(tags[2]);
+cartCloseIcon.addEventListener(`click`, () =>{
+    cartContent.classList.remove("show");
+});
 
-const elem = document.querySelectorAll(".logo");
-//console.log(elem);
+document.addEventListener('click', function(event) {
+    const isClickInsideMenu = menuContent.contains(event.target);
+    const isClickOnMenuIcon = menuIcon.contains(event.target);
+  
+    if (!isClickInsideMenu && !isClickOnMenuIcon) {
+        menuContent.classList.remove('show');
+    }
+});
 
-//Create element and add attributes
-const parent = document.querySelector(".main__products");
-const newElem = document.createElement("article");
-newElem.setAttribute("class", "new")
-
-parent.append(newElem);
-
-
-// Attributes
-
-const logo = document.querySelector(".logo");
-//logo.setAttribute("src","img/jersey.png");
-//console.log(logo.getAttribute("src"));
-//console.log(logo.hasAttribute("src"));
-//logo.removeAttribute("src");
-
-if(logo.hasAttribute("src")) {
-    //alert("TieneSRC");
+function updateCartCounter() {
+    const productsOnCart = document.querySelectorAll(".cart__item");
+    const numberItemsCart = productsOnCart.length;
+    const counterCart = document.querySelector(".counter");
+    counterCart.textContent = numberItemsCart;
 }
 
-// Clases de CSS
+function formatCurrency(value) {
+    return value.toLocaleString('en-US', {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    });
+}
 
-const parent2 = document.querySelector(".main__products");
-const parent3 = parent2.firstElementChild;
-const price = parent3.lastElementChild;
+const divEmptyButton = document.createElement("div");
+divEmptyButton.classList.add("div__emptyButton");
+const emptyCartButton = document.createElement("span");
+emptyCartButton.textContent = "Vaciar Carrito";
+emptyCartButton.classList.add("empty__button");
+cartContent.appendChild(divEmptyButton);
+divEmptyButton.appendChild(emptyCartButton);
 
-//console.log(price);
-
-price.classList.add("red");
-price.classList.replace("red", "blue");
-
-price.classList.remove("blue")
-
-//Modificar texto
-
-const button = document.getElementsByTagName("button");
-//console.log(button[0].innerText);
-
-//button[0].innerText = "BUY";
-
-//Modificar Style
-
-//console.log(button[0].style);
-
-//button[0].style.backgroundColor = "gray";
-
-//Eventos
-
-const elemButton = button[0];
-
-button[0].addEventListener('click', () => {
-    elemButton.classList.toggle("toggle");
+emptyCartButton.addEventListener("click", () => {
+    const productsOnCart = document.querySelectorAll(".cart__item");
+    productsOnCart.forEach(item => item.remove());
+    totalToPay = 0;
+    const showTotalPay = document.querySelector(".total__pay");
+    showTotalPay.textContent = formatCurrency(totalToPay);
+    updateCartCounter();
 });
 
 
-
-const header = document.querySelector("header");
-const carIcon = header.lastElementChild;
-const cart = document.querySelector(".main__cart")
-
-carIcon.addEventListener('click', () => { 
-    if(cart.classList.contains("hide")){
-        cart.classList.remove("hide")
-    }; 
-    cart.classList.toggle("show");
-})
-
-const closeIcon = document.getElementsByClassName("close");
-
-closeIcon[0].addEventListener('click', () => {
-    if(cart.classList.contains("show")){
-        cart.classList.remove("show")
-    }
-    cart.classList.add("hide");
-})
-
-
-
-
-
-const menuIcon = header.firstElementChild;
-const menu = document.querySelector(".main__menu");
-
-menuIcon.addEventListener('click', () => { 
-    if(menu.classList.contains("hide")){
-        menu.classList.remove("hide");
-    }; 
-    menu.classList.toggle("show");
-});
-
-const closeIcon2 = document.getElementsByClassName("close2");
-
-closeIcon2[0].addEventListener('click', () => {
-    if(menu.classList.contains("show")){
-        menu.classList.remove("show");
-    }
-    menu.classList.add("hide");
-});
-
-
-const rowProducts = document.querySelector(".row__Product");
-const productList = document.querySelector(".main__products");
-const totalPrice = document.querySelector(".total");
-const counterProducts = document.querySelector(".counter");
-
-let allProducts = [];
-
-let totalPagar = document.querySelector(".total__pagar");
-
-
-productList.addEventListener('click', e => {
-    if (e.target.classList.contains("add__Cart")) {
-        const product = e.target.parentElement;
-
-        const infoProduct = {
-            id: Date.now(),
-            quantity: 1,
-            img: product.querySelector("img").src,
-            title: product.querySelector("h3").textContent,
-            price: parseFloat(product.querySelector("p").textContent.replace(/[$,]/g, ''))
-        };
-
-        allProducts = [...allProducts, infoProduct];
-
-        showHTML();
+document.addEventListener('click', function(event) {
+    const isClickInsideCart = cartContent.contains(event.target);
+    const isClickOnCartIcon = cartIcon.contains(event.target);
+    const isClickOnDeleteIcon = event.target.classList.contains('delete__item');
+  
+    if (!isClickInsideCart && !isClickOnCartIcon && !isClickOnDeleteIcon) {
+        cartContent.classList.remove('show');
     }
 });
 
-const showHTML = () => {
-    rowProducts.innerHTML = "";
+document.querySelectorAll(".add__Cart").forEach((button) => {
+    totalToPay = 0;
 
-    let total = 0;
+    button.addEventListener("click", function() {
 
-    allProducts.forEach(product => {
-        const containerProduct = document.createElement("div");
-        containerProduct.classList.add("product__Cart");
+        const productArticle = this.parentElement;
 
-        containerProduct.innerHTML = `
-            <div class="product__Cart" data-id="${product.id}">
-                <p>${product.quantity}</p>
-                <img class="img__Cart" src="${product.img}" alt="${product.title}">
-                <p>${product.title}</p>
-                <p>$${product.price}</p>
-                <i class="remove"><img class="delete__Icon" src="img/trash.png" alt="Icono quitar" ></i>
-            </div>
-        `;
+        const cartItem = document.createElement("div")
+        cartItem.classList.add("cart__item")
 
-        rowProducts.append(containerProduct);
+        const productImage = productArticle.querySelector(".img__Art").cloneNode(true); 
+        const producTitle =  productArticle.querySelector("h3").cloneNode(true);
+        const productPrice = productArticle.querySelector(".price").cloneNode(true);
+        const deleteItemIcon = document.createElement("span");
 
-        total = total + product.price;
+        const productPriceElement = productArticle.querySelector(".price");
+        const productPriceText = productPriceElement.textContent.trim();
+        const cleanedPriceText = productPriceText.replace(/[$,]/g, '');
+        const productPriceNumber = parseFloat(cleanedPriceText);
 
-        const removeIcon = containerProduct.querySelector(".remove");
+        totalToPay = totalToPay + productPriceNumber;
+        const showTotalPay = document.querySelector(".total__pay");
+        showTotalPay.textContent = formatCurrency(totalToPay);
 
-        removeIcon.addEventListener("click", () => {
-            removeProduct(product.id);
+
+        deleteItemIcon.textContent = "Quitar";
+        deleteItemIcon.classList.add("delete__item");
+        deleteItemIcon.addEventListener("click", () => {
+
+            totalToPay = totalToPay - productPriceNumber;
+            showTotalPay.textContent = formatCurrency(totalToPay);
+
+            cartItem.remove();
+            updateCartCounter();
+ 
         });
 
-       
+        cartItem.appendChild(producTitle);
+        cartItem.appendChild(productImage);
+        cartItem.appendChild(productPrice);
+        cartItem.appendChild(deleteItemIcon);
 
-          
-    });
+        document.querySelector('.row__Product').appendChild(cartItem);
 
-    
+        const productsOnCart = document.querySelectorAll(".cart__item");
+        const numberItemsCart = productsOnCart.length;
 
-    counterProducts.textContent = allProducts.length;
-
-   
-    totalPagar.textContent = total.toFixed(2);
-};
-
-
-
-const removeProduct = (id) => {
-    allProducts = allProducts.filter(product => product.id !== id);
-    showHTML();
-};
-
-const onImage = document.querySelectorAll(".img__Art");
-
-onImage.forEach(element => {
-    element.addEventListener("mouseenter", () => {
-        element.style.scale = 1.05;
-        element.style.boxShadow = "5px 10px 10px 5px #000000"
-        element.style.overflow = "hidden"
-    });
-    element.addEventListener("mouseleave", () => {
-        element.style.scale = 1;
-        element.style.boxShadow = "0px 0px 0px #FFFFFF";
-    });
+        const counterCart = document.querySelector(".counter")
+        counterCart.textContent = numberItemsCart; 
+    });      
 });
-
-const buttonSize = document.querySelectorAll("button");
-
-buttonSize.forEach(element => {
-    element.addEventListener("mouseenter", () => {
-        element.style.borderRadius = "20px";
-        element.style.scale = 1.2;
-        element.style.boxShadow = "0px 0px 20px #000000"
-    });
-    element.addEventListener("mouseleave", () => {
-        element.style.borderRadius = "0px";
-        element.style.scale = 1;
-        element.style.boxShadow = "0px 0px 0px #000000"
-    });
-});
-
-const buttonHeader = document.querySelectorAll(".button__header");
-
-buttonHeader.forEach(element => {
-    element.addEventListener("mouseenter", () => {
-        element.style.scale = 1.2;
-    });
-    element.addEventListener("mouseleave", () => {
-        element.style.scale = 1;
-    });
-});
-
-const menuSections = document.querySelectorAll(".size");
-
-menuSections.forEach(element => {
-    element.addEventListener("mouseenter", () => {
-        element.style.color = "#0079FF";
-    });
-    element.addEventListener("mouseleave", () => {
-        element.style.color = "#000000";
-    });
-});
-
-const buttonClose1 = document.querySelectorAll(".close");
-
-buttonClose1.forEach(element => {
-    element.addEventListener("mouseenter", () => {
-        element.style.scale = 2;
-    });
-    element.addEventListener("mouseleave", () => {
-        element.style.scale = 1;
-    });
-});
-
-const buttonClose2 = document.querySelectorAll(".close2");
-
-buttonClose2.forEach(element => {
-    element.addEventListener("mouseenter", () => {
-        element.style.scale = 2;
-    });
-    element.addEventListener("mouseleave", () => {
-        element.style.scale = 1;
-    });
-});
-
-const showModal = document.querySelectorAll(".img__Art");
-const hideModal = document.querySelector(".modal i")
-
-
-showModal.forEach(picProduct => {
-    picProduct.addEventListener("click", () => {
-        const modalHi = document.querySelector(".modal")
-        if(modalHi.classList.contains("hide")) {
-            modalHi.classList.remove("hide");
-        };
-        modalHi.classList.add("show"); 
-    });
-});
-
-hideModal.addEventListener("click", () => {
-    document.querySelector(".modal").classList.add("hide");
-});
-
-
-
 
